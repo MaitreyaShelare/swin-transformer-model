@@ -16,7 +16,7 @@ https://github.com/microsoft/Swin-Transformer
 
 ```python
 import torch
-HUB_URL = "SharanSMenon/swin-transformer-hub"
+HUB_URL = "MaitreyaShelare/swin-transformer-model"
 MODEL_NAME = "swin_tiny_patch4_window7_224"
 # check hubconf for more models.
 model = torch.hub.load(HUB_URL, MODEL_NAME, pretrained=True) # load from torch hub
@@ -38,21 +38,3 @@ transform = T.Compose([
     T.Normalize(timm.data.IMAGENET_DEFAULT_MEAN, timm.data.IMAGENET_DEFAULT_STD)
 ])
 ```
-
-## Imagenet Labels
-
-Get a list of imagenet labels.
-
-```python
-import json
-from urllib.request import urlopen
-
-URL = "https://raw.githubusercontent.com/SharanSMenon/swin-transformer-hub/main/imagenet_labels.json"
-response = urlopen(URL)
-classes = json.loads(response.read())
-len(classes) # Should return 1000
-```
-
-## TODO
-
-- Add support for more model weights
